@@ -15,8 +15,8 @@
 
 ## [Software]
 
-1. [vscode](software/vscode/readme.md "vscode软件使用说明")
-1. [adams](software/adams/readme.md "adams软件教程")
+1. [Vscode](software/vscode/readme.md "vscode软件使用说明")
+1. [Adams](software/adams/readme.md "adams软件教程")
 1. [ANSYS](software/ANSYS/readme.md "ANSYS软件教程")
 1. [MATLAB](software/MATLAB/readme.md "MATLAB软件教程")
 1. [ROS](software/ROS/0.catalog.md "ROS软件教程")***中级***
