@@ -54,12 +54,15 @@ version        Get version information about this LxRunOffline.exe.
 One Large window => Display number=0 => start no client => Clipboard\Primary Selection\Disable access control => Save configuration
 ```
 然后为了以后使用的方便，在桌面建立一个快捷方式如下：
+
 ![0](./xlaunch.bmp)
 
 **! 注意** 启动时加入参数`-run XconfigFile`
 
 ## 安装ConEmu
 安装后建立自己的一个终端启动方法如下:
+
 ![1](./ConEmu.jpg)
 ## 最终效果
+
 ![2](./runWSL.jpg)
