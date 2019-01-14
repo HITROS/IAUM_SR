@@ -14,7 +14,8 @@ http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
 特别建议：  
 采用一个Clean的电脑，不从官网下载Python（或者卸载除了系统内的python之外的所有版本）。  
 如果有Homebrew，建议卸载后-rm rf然后重新安装homebrew。  
-建议安装版本：MacOS 10.12 / 10.13  
+建议安装版本：  
+MacOS 10.12 / 10.13  
 Melodic: Mac 10.14  
 
 在安装中你可能会遇到的问题：  
@@ -72,13 +73,13 @@ Step by Step
  一个重要的问题，似乎Ros下载时没有ros control的库文件。  
  需要你下载ros_control的包，请：  
 
-cd CATKIN_WORKSPACE/src
-wstool init
-wstool merge https://raw.github.com/ros-controls/ros_control/kinetic-devel/ros_control.rosinstall
-wstool update
-cd ..
-rosdep install --from-paths . --ignore-src --rosdistro kinetic -y
-
+cd CATKIN_WORKSPACE/src  
+wstool init  
+wstool merge https://raw.github.com/ros-controls/ros_control/kinetic-devel/ros_control.rosinstall  
+wstool update  
+cd ..  
+rosdep install --from-paths . --ignore-src --rosdistro kinetic -y  
+  
 似乎Gazebo_Ros中的gazebo_ros_control包也没有，需要去github上下载这个包，同下。  
 rosdep初始化的时候，会搜索需要的包，此时可能会出现不了这些包的问题（因为是在mac中，不是ubuntu）。  
 解决办法：百度terminal中提示的包，然后下载src文件，然后重复rosdep install这一步，直到初始化成功。  
@@ -88,40 +89,40 @@ rosdep初始化的时候，会搜索需要的包，此时可能会出现不了�
 ### Boost uint32_t
 Boost库文件会出现位数的问题，将每一个调用的函数的变量前都加上 uint32_t()可解决这个问题。  
 
-return pt::from_time_t(sec) + pt::microseconds(nsec/1000.0);  
-change to:  
-return pt::from_time_t(sec) + pt::microseconds(uint32_t(nsec/1000.0));  
+return pt::from_time_t(sec) + pt::microseconds(nsec/1000.0);    
+change to:    
+return pt::from_time_t(sec) + pt::microseconds(uint32_t(nsec/1000.0));    
 
-已知的有：  
-roscpp_core uint32 fixes:  
-roscpp_core/rostime/include/impl/duration.h  
-roscpp_core/rostime/include/impl/time.h  
+已知的有：    
+roscpp_core uint32 fixes:    
+roscpp_core/rostime/include/impl/duration.h    
+roscpp_core/rostime/include/impl/time.h    
+  
+bondcpp uint32 fix:  
+bond_core/bondcpp/src/bond.cpp  
 
-bondcpp uint32 fix:
-bond_core/bondcpp/src/bond.cpp
-
-actionlib uint32 fixes:
-actionlib/src/connection_monitor.cpp
-actionlib/include/actionlib/destruction_guard.h
-actionlib/include/actionlib/server/simple_action_server_imp.h
-actionlib/include/actionlib/client/simple_action_client.h
-
-laser_assembler uint32 fixes:
-laser_assembler/test/test_assembler.cpp
+actionlib uint32 fixes:  
+actionlib/src/connection_monitor.cpp  
+actionlib/include/actionlib/destruction_guard.h  
+actionlib/include/actionlib/server/simple_action_server_imp.h  
+actionlib/include/actionlib/client/simple_action_client.h  
+ 
+laser_assembler uint32 fixes:  
+laser_assembler/test/test_assembler.cpp  
 
 ### cv_bridge and camera_calibration_parsers
 
-替换CmakeLists.txt,
-https://github.com/ros-perception/vision_opencv/pull/239
-https://github.com/ros-perception/image_common/pull/85
+替换CmakeLists.txt,  
+https://github.com/ros-perception/vision_opencv/pull/239  
+https://github.com/ros-perception/image_common/pull/85  
 
 
 ### tf2
 
-模仿
-https://github.com/ros/geometry2/pull/279
-更改调用的子函数名。
-
+模仿  
+https://github.com/ros/geometry2/pull/279  
+更改调用的子函数名。  
+ 
 End
 ------------
 由于版本的更新，可能会出现很多build的bug，建议没有必要，不要更新库文件。
