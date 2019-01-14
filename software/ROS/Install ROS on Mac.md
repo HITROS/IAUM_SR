@@ -1,7 +1,7 @@
 ros-install-osx   
 ===============
 Source: 
-https://github.com/mikepurvis/ros-install-osx
+https://github.com/mikepurvis/ros-install-osx \\
 http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
 
 在MacOS上安装ROS（以源码的方式），你需要的知识：
